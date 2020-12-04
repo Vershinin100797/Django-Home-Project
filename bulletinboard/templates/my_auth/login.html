@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block content %}
+    {% if not user.is_authenticated %}
+    <div class="login-block">
+        <form class="login-form" method="post">
+            {% csrf_token %}
+                <div>
+                    {% for field in form %}
+                        <div class="login-form-fields">
+                            <span class="login-form-label">{{field.label}}</span>
+                            {{ field }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% if form.errors %}
+                {% for field, errors in form.errors.items %}
+                <ul> {{ errors }} </ul>
+                {% endfor %}
+            {% endif %}
+            <button class="login-btn" type="submit">Войти</button>
+        </form>
+        <a href="{% url 'bulletinboard:password_reset' %}"> Забыли пароль? </a>
+    </div>
+    {% else %}
+        <h3 class="main-page-header"> Привет, {{ user.username }} </h3>
+        <div class="login-block">
+            <a class="login-btn" href="{% url 'bulletinboard:logout' %}"> Выйти? </a>
+            <a class="login-btn" href="{% url 'bulletinboard:home' %}"> На главную </a>
+        </div>
+    {% endif %}
+{% endblock content%}

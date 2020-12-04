@@ -1,0 +1,35 @@
+.category-page-list {
+    margin: 0;
+    list-style-type: none;
+    padding: 20px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 91.5%;
+}
+
+.category-page-list-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.category-page-list-item:hover {
+    background-color: #e9e9e9;
+}
+
+.category-page-list-item:active {
+    background-color: #a5a5a5;
+}
+
+.category-page-list-item-link{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: fantasy;
+    font-size: 25px;
+    color: #000000;
+    display: block;
+    text-align: center;
+    height: 100%;
+}

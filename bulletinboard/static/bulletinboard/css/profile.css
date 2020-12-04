@@ -1,0 +1,71 @@
+.pos {
+    position: absolute;
+    top: 25%;
+    left: 42%;
+}
+.profile-announcement-block {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.profile-announcement-block-title {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Arial Black";
+}
+
+.profile-info {
+    display: flex;
+    padding: 20px 50px;
+}
+
+.profile-text-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+}
+
+.profile-img {
+    height: 200px;
+    width: 200px;
+}
+
+.profile-name {
+    margin: 15px 0;
+    text-transform: uppercase;
+    font-family: fantasy;
+    font-size: 30px;
+}
+
+.profile-birth-date {
+    margin: 15px 0;
+    text-transform: uppercase;
+    font-family: Tahoma;
+    font-size: 15px;
+}
+
+.profile-edit-btn {
+    outline: none;
+    margin-top: 30px;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: Tahoma;
+    background-color: #6d9fd7;
+    color: #ffffff;
+    padding: 10px 5px;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profile-edit-btn:hover {
+    background-color: #406fa8;
+}
+
+.profile-edit-btn:active {
+    background-color: #243b5f;
+}

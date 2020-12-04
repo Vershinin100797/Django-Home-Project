@@ -1,0 +1,127 @@
+@import "index.css";
+@import "category.css";
+@import "announcement_detail.css";
+@import "profile.css";
+@import "delete.css";
+@import "create.css";
+@import "login.css";
+@import "signup.css";
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+     background: white url("../img/main-bg.jpg") repeat;
+     min-height: 81.3vh;
+}
+
+.main-grid {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1400px;
+    box-sizing: border-box;
+    background-clip: content-box;
+    background-color: #ffffff;
+    min-height: 81.3vh;
+    position: relative;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: #4f4f4f;
+    padding: 30px 40px;
+}
+
+.footer-item {
+    color: #e0e0e0;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-family: "Arial Black";
+
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #6d9fd7;
+}
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-logo-link {
+    display: flex;
+    text-decoration: none;
+}
+
+.header-logo {
+    height: 100px;
+    width: 100px;
+}
+
+.header-title {
+    margin: 20px 20px;
+    text-transform: uppercase;
+    font-size: 35px;
+    font-family: "Arial Black";
+    color: #ffffff;
+}
+
+.header-nav-block {
+    margin: 10px 0px;
+    padding: 15px 0;
+}
+
+.header-nav-list {
+    display: flex;
+    list-style-type: none;
+}
+
+.header-nav-item {
+    margin-right: 35px;
+}
+
+.header-nav-item a {
+    text-decoration: none;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-family: "Arial Black";
+}
+
+.header-nav-item a:hover {
+    color: #c2bfbf;
+}
+
+.header-nav-item a:active {
+    color: #838383;
+}
+
+.header-auth-block {
+    margin: 20px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-auth-link {
+    color: #ffffff;
+    margin-right: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "Arial Black";
+    font-size: 12px;
+}
+
+.header-auth-link:hover  {
+    color: #c2bfbf;
+}
+
+.header-auth-link:active  {
+    color: #838383;
+}

@@ -1,0 +1,35 @@
+.delete-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-form {
+    padding: 20px;
+}
+
+.delete-btn {
+    outline: none;
+    margin-top: 30px;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: Tahoma;
+    background-color: #6d9fd7;
+    color: #ffffff;
+    padding: 10px 5px;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    min-width: 100px;
+}
+
+.delete-btn:hover {
+    background-color: #406fa8;
+}
+
+.delete-btn:active {
+    background-color: #243b5f;
+}

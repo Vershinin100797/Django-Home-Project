@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+    <head>
+        {% block title %}
+            <title>Bulletinboard</title>
+        {% endblock title %}
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="{% static 'bulletinboard/css/layout.css' %}">
+        {% block extrahead %}
+        {% endblock extrahead %}
+    </head>
+    <body>
+        <header class="header">
+            <div class="header-nav">
+                <a class="header-logo-link" href="{% url 'bulletinboard:home' %}">
+                    <img class="header-logo" src="{% static 'bulletinboard/img/logo.png' %}" alt="на главную">
+                    <h2 class="header-title">bulletinboard</h2>
+                </a>
+                <nav class="header-nav-block">
+                    <ul class="header-nav-list">
+                        <li class="header-nav-item"><a href="{% url 'bulletinboard:announcements' %}">Все объявления</a></li>
+                        <li class="header-nav-item"><a href="{% url 'bulletinboard:categories' %}">Все категории</a></li>
+                        <li class="header-nav-item"><a href="{% url 'bulletinboard:create_announcement' %}">Создать новое объявление</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header-auth-block">
+                {% if user.is_authenticated %}
+                    <a class="header-auth-link" href="{% url 'bulletinboard:profile' user.id %}"> {{ user.username }}</a>
+                    <a class="header-auth-link" href="{% url 'bulletinboard:logout' %}">Выйти</a>
+                {% else %}
+                    <div class="header-auth">
+                        <a class="header-auth-link" href="{% url 'bulletinboard:login' %}"> Войти </a>
+                        <a class="header-auth-link" href="{% url 'bulletinboard:signup' %}"> Зарегистрироваться </a>
+                    </div>
+                {% endif %}
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="main-grid">
+                {% block content %}
+                {% endblock content%}
+            </div>
+        </main>
+        <footer class="footer">
+            <span class="footer-item">ivan vershinin</span>
+            <span class="footer-item">bulletinboard</span>
+            <span class="footer-item">2020</span>
+        </footer>
+    </body>
+</html>

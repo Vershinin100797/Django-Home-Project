@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+    <div class="profile-info">
+        {% if profile.avatar %}
+            <img class="profile-img" src= '{{ profile.avatar.url }}' alt="avatar"/>
+        {% else %}
+            <img class="profile-img" src="{% static 'bulletinboard/img/no_avatar.png' %}" alt="avatar">
+        {% endif %}
+        <div class="profile-text-info">
+            <h2 class="profile-name"> {{ profile.user.username }}</h2>
+            <span class="profile-birth-date"> Дата рождения:
+            {% if profile.birth_date %}
+                <i> {{ profile.birth_date|date:"d b Y" }} </i>
+            {% endif %}
+            </span>
+            {% if user.id == profile.user.id %}
+                <a class="profile-edit-btn" href="{% url 'bulletinboard:edit_profile' profile.user.id %}">  Редактировать профиль  </a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="profile-announcement-block">
+        <h3 class="profile-announcement-block-title">Объявления:</h3>
+        <ul class="main-page-list">
+        {% if profile.user.post_set.all  %}
+            {% for post in profile.user.post_set.all %}
+            <li class="main-page-list-item">
+                    <a class="main-page-list-item-link" href="{% url 'bulletinboard:announcement_detail' post.id %}">
+                        <img class="main-page-list-item-img" src="{{ post.announcement_image.url }}" alt="img" height='300'>
+                        <div class="main-page-list-item-desc">
+                            <h3 class="main-page-list-item-title">{{ post.announcement_title }}</h3>
+                            <span class="main-page-list-item-date">{{ post.published_date|date:"d b Y" }}</span>
+                            <span class="main-page-list-item-price">{{ post.price }}</span>
+                        </div>
+                    </a>
+            {% endfor %}
+            </li>
+        {% endif %}
+        </ul>
+    </div>
+{% endblock content%}

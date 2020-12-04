@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="create-block">
+    <form class="create-form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            {% for field in form %}
+                <div class="create-form-fields">
+                    <span class="create-form-label"> {{field.label}} </span>
+                    {{field}}
+                </div>
+                <ul> {{ field.errors }} </ul>
+            {% endfor %}
+        </div>
+        <button class="create-btn" type="submit" > Принять изменения </button>
+    </form>
+</div>
+{% endblock content%}

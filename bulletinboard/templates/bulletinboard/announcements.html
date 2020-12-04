@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <ul class="main-page-list">
+            {% for post in announcements %}
+                <li class="main-page-list-item">
+                    <a class="main-page-list-item-link" href="{% url 'bulletinboard:announcement_detail' post.id %}">
+                        <img class="main-page-list-item-img" src="{{ post.announcement_image.url }}" alt="img" height='500'>
+                        <div class="main-page-list-item-desc">
+                            <h3 class="main-page-list-item-title">{{ post.announcement_title }}</h3>
+                            <span class="main-page-list-item-date">{{ post.published_date|date:"d b Y" }}</span>
+                            <span class="main-page-list-item-price">Цена: {{ post.price }} у.е.</span>
+                        </div>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h2 class="main-page-header">You need authenticate to see ads</h2>
+    {% endif %}
+{% endblock content%}

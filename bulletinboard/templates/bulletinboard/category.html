@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <ul class="category-page-list">
+        {% for post in categories_list %}
+            <li class="category-page-list-item">
+                <a class="category-page-list-item-link" href="{% url 'bulletinboard:announcements_categories' post.id %}">
+                    {{ post.category_name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock content%}

@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% if post.author != user %}
+    <h2 class="main-page-header"> вы не можите удалить чужое объявление </h2>
+{% else %}
+    <h2 class="main-page-header"> Вы уверены, что хотите удалить это объявление? </h2>
+    <div class="delete-block">
+        <form class="delete-form" method='post' action="{% url 'bulletinboard:delete_announcement' post.id %}">
+            {% csrf_token %}
+            <button class="delete-btn" type='submit' > Удалить </button>
+        </form>
+        <a class="delete-btn" href="{% url 'bulletinboard:announcement_detail' post.id %}">  Нет </a>
+    </div>
+{% endif %}
+{% endblock content%}>

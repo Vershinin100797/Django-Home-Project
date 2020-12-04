@@ -1,0 +1,77 @@
+.main-page-header a {
+    text-decoration: none;
+    color: #0e90d2;
+}
+
+.create-block {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 5%;
+    left: 42%;
+}
+
+.create-btn {
+    outline: none;
+    margin-top: 30px;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: Tahoma;
+    background-color: #6d9fd7;
+    color: #ffffff;
+    padding: 10px 5px;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    min-width: 100px;
+}
+
+.create-btn:hover {
+    background-color: #406fa8;
+}
+
+.create-btn:active {
+    background-color: #243b5f;
+}
+
+.create-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.create-form-fields {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-form-label {
+    margin-bottom: 10px;
+    font-family: Calibri;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+.create-form-input {
+    padding: 10px;
+    outline: none;
+}
+
+.create-form-textarea {
+    resize: none;
+    padding: 10px;
+    outline: none;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}

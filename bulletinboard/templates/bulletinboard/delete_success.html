@@ -1,0 +1,8 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h2 class="main-page-header"> Объявление успешно удаленно </h2>
+    <div class="delete-block">
+        <a class="delete-btn" href="{% url 'bulletinboard:home' %}"> На главную </a>
+        <a class="delete-btn" href="{% url 'bulletinboard:create_announcement' %}"> Создать новое объявление </a>
+    </div>
+{% endblock content%}>

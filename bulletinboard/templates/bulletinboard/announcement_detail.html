@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+{% block content %}
+    {% if post %}
+        <div class="announcement-block">
+            <div class="announcement-main-block">
+                <img class="announcement-main-block-img" src='{{ post.announcement_image.url }}'/>
+                <div class="announcement-main-block-info">
+                    <h2 class="announcement-main-block-info-title">{{ post.announcement_title }}</h2>
+                    <span class="announcement-main-block-info-text">Дата размещения: {{ post.published_date|date:" d b Y "  }}</span>
+                    <span class="announcement-main-block-info-text">Категория: {{ post.category }}</span>
+                    <span class="announcement-main-block-info-text">Описание:</span>
+                    <p class="announcement-main-block-info-description">{{ post.description }}</p>
+                    <span class="announcement-main-block-info-text">Размещено пользователем:
+                        <a class="announcement-main-block-info-author-link" href="{% url 'bulletinboard:profile' post.author.id %}">{{ post.author.username }}</a>
+                    </span>
+                    <span class="announcement-main-block-info-text">Цена: {{ post.price }}</span>
+                </div>
+            </div>
+            {% if post.author == user %}
+                <div class="announcement-edit-block">
+                    <a class="announcement-edit-btn" href="{% url 'bulletinboard:edit_announcement' post.id %}"> Редактировать объявление </a>
+                    <form action ="{% url 'bulletinboard:delete_announcement' post.id %}" method="get">
+                        {% csrf_token %}
+                            <button class="announcement-edit-btn" type="submit"> Удалить объявление </button>
+                    </form>
+                </div>
+            {% endif %}
+            <div class="announcement-comment-block">
+                <h2 class="announcement-comment-title"> Отзывы: </h2>
+                {% if comments.all %}
+                {% for comment in comments.all %}
+                    <div class="announcement-comment">
+                        <p class="announcement-comment-author"><b> {{ comment.author.username }}</b> : {{comment.text}} </p>
+                        <span class="announcement-comment-date"> {{comment.date_publish|date:"M d, Y" }} </span>
+                    </div>
+                {% endfor %}
+                {% else %}
+                    <h3 class="announcement-comment-msg">Отзывов нет. Хотите написать коментарий?</h3>
+                {% endif %}
+                {% if comment_form %}
+                    <span class="announcement-comment-form-title"> Написать отзыв:</span>
+                    <form class="announcement-comment-form" method='post'>
+                        {% csrf_token %}
+                        {{comment_form.text}}
+                        <button class="announcement-comment-btn" type='submit'> Отправить </button>
+                    </form>
+                {% else %}
+                    <h3 class="announcement-comment-msg"> Авторизуйтесь чтобы оставить отзыв </h3>
+                {% endif %}
+            </div>
+        </div>
+    {% else %}
+        <h3 class="main-page-header"> Такого объявления не существует </h3>
+    {% endif %}
+{% endblock content%}

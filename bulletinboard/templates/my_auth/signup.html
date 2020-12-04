@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="signup-block">
+        {% if not registered %}
+            <form class="signup-form" method='post'>
+            {% csrf_token %}
+            <div>
+                {% for field in form %}
+                    <div class="signup-form-fields">
+                        <span class="signup-form-label">{{field.label}}</span>
+                        {{ field }}
+                    </div>
+                    <ul>  {{ field.errors }} </ul>
+                {% endfor %}
+            </div>
+            <button class="signup-btn" type='submit'> Зарегистрироваться </button>
+            </form>
+        {% else %}
+            <h3 class="main-page-header"> Вы успешно зарегистрированы </h3>
+            <a class="signup-btn" href="{% url 'bulletinboard:login'%}"> Войти </a>
+        {% endif %}
+    </div>
+{% endblock content%}
